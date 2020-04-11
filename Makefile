@@ -16,6 +16,14 @@ helloworld-exe: helloworld.cbl cobc-build
 
 build: helloworld-exe
 
-.PHONY: cobc-build build
+run:
+	@docker run \
+		-it \
+		-w /app \
+		-v $(PWD):/app \
+		--entrypoint=/app/helloworld-exe \
+		$(DOCKER_IMAGE)
+
+.PHONY: cobc-build build run
 
 
