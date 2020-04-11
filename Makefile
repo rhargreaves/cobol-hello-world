@@ -11,8 +11,8 @@ helloworld-exe: helloworld.cbl cobc-build
 		$(DOCKER_IMAGE) \
 		-free \
 		-x \
-		-o helloworld-exe \
-		helloworld.cbl
+		-o $@ \
+		$<
 
 build: helloworld-exe
 
